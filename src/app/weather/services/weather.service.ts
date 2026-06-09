@@ -26,6 +26,7 @@ export class WeatherService {
 
   getCoordinatesByPlace(query: string) : Observable<Weather>  {
     this.isLoading.set(true)
+    this.isError.set(false)
 
     const url = `https://nominatim.openstreetmap.org/search?q=${query}&format=json&limit=1`
     return this.http.get<Location[]>(url)
@@ -45,7 +46,7 @@ export class WeatherService {
     return this.http.get<Weather>(url)
       .pipe(
         tap(resp => this.weatherInfo.set(resp)),
-        tap(resp => console.log(resp)),
+        //tap(resp => console.log(resp)),
         tap(() => this.isLoading.set(false)),
       )
   }
