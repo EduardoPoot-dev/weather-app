@@ -1,0 +1,30 @@
+<section class="mt-8">
+  <h2 class="text-white font-bold text-lg  ">Daily forecast</h2>
+
+  <div class="mt-5 grid grid-cols-3 lg:grid-cols-7 text-white gap-3">
+    @if(isLoading()) {
+      @for(item of sevenDays; track item) {
+        <div class="p-3 bg-neutral-800 border border-neutral-600 rounded-lg h-30 "></div>
+      }
+    } @else {
+      @for (day of days(); track day; let i = $index) {
+        <div class="p-3 bg-neutral-800 border border-neutral-600 rounded-lg ">
+          <p class="text-center">
+            {{day | date: 'EEE'}}
+          </p>
+
+          <img
+            class="w-3/4 sm:w-1/2 mx-auto"
+            [src]="`./images/icon-${weatherCodes[weather()?.weather_code?.[i] ?? 0].icon}.webp`"
+            alt="weather icon"
+          >
+
+          <ul class="flex justify-between lg:flex-col lg:text-center text-md">
+            <li>{{showWeather().max?.at(i)}}</li>
+            <li>{{showWeather().min?.at(i)}}</li>
+          </ul>
+        </div>
+      }
+    }
+  </div>
+</section>

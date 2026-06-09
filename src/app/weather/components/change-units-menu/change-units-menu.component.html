@@ -1,0 +1,62 @@
+<button (click)="showMenu.set(!showMenu())" class="rounded  bg-neutral-800 py-2 px-4 flex items-center text-white">
+  <img class="size-4 mr-2" src="./images/icon-units.svg" alt="icon units">
+  Units
+</button>
+
+@if (showMenu()) {
+  <div  class="absolute space-y-2 w-50 bg-neutral-800 border border-neutral-600 rounded p-4 mt-2 right-0 text-white">
+    <button
+      (click)="changeUnitsSerive.switchToImperial()"
+      class="w-full border-b border-neutral-600 text-left p-2 rounded hover:bg-neutral-600"
+    >Switch to imperial</button>
+
+    <div class="border-b border-neutral-600 ">
+      <h3 class="text-sm text-neutral-300 mb-2">Temperature</h3>
+
+      <button
+        (click)="changeUnitsSerive.changeWeatherUnits('celsius')"
+        [ngClass]="{'bg-neutral-600 after:bg-checked': changeUnitsSerive.weatherUnit() === 'celsius'}"
+        class="relative w-full text-left p-2 rounded hover:bg-neutral-600"
+      >Celsius (°C)</button>
+
+      <button
+        (click)="changeUnitsSerive.changeWeatherUnits('fahrenheit')"
+        [ngClass]="{'bg-neutral-600 after:bg-checked': changeUnitsSerive.weatherUnit() === 'fahrenheit'}"
+        class="relative w-full text-left p-2 rounded hover:bg-neutral-600"
+      >Fahrenheit (°F)</button>
+
+    </div>
+
+    <div class="border-b border-neutral-600">
+      <h3 class="text-sm text-neutral-300 mb-2">Wind Speed</h3>
+
+      <button
+        (click)="changeUnitsSerive.changeVelocityUnits('km/h')"
+        [ngClass]="{'bg-neutral-600 after:bg-checked': changeUnitsSerive.velocityUnit() === 'km/h'}"
+        class="relative w-full text-left p-2 rounded hover:bg-neutral-600"
+      >km/h</button>
+
+      <button
+        (click)="changeUnitsSerive.changeVelocityUnits('mph')"
+        [ngClass]="{'bg-neutral-600 after:bg-checked': changeUnitsSerive.velocityUnit() === 'mph'}"
+        class="relative w-full text-left p-2 rounded hover:bg-neutral-600"
+      >mph</button>
+    </div>
+
+    <div class="">
+      <h3 class="text-sm text-neutral-300 mb-2">Precipitation</h3>
+
+      <button
+        (click)="changeUnitsSerive.changePrecipitationUnits('mm')"
+        [ngClass]="{'bg-neutral-600 after:bg-checked': changeUnitsSerive.precipitationUnit() === 'mm'}"
+        class="relative w-full text-left p-2 rounded hover:bg-neutral-600"
+      >Milimeters (mm)</button>
+
+      <button
+        (click)="changeUnitsSerive.changePrecipitationUnits('in')"
+        [ngClass]="{'bg-neutral-600 after:bg-checked': changeUnitsSerive.precipitationUnit() === 'in'}"
+        class="relative w-full text-left p-2 rounded hover:bg-neutral-600"
+      >Inches (in)</button>
+    </div>
+  </div>
+}

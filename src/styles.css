@@ -1,1 +1,71 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Neutrals */
+    --neutral-900: 243 96% 9%;
+    --neutral-800: 243 27% 20%;
+    --neutral-700: 243 23% 24%;
+    --neutral-600: 243 23% 30%;
+    --neutral-300: 240 6% 70%;
+    --neutral-200: 250 6% 84%;
+    --neutral-0: 0 0% 100%;
+
+    /* Orange */
+    --orange-500: 28 100% 52%;
+
+    /* Blue */
+    --blue-500: 233 67% 56%;
+    --blue-700: 248 70% 36%;
+  }
+}
+
+@theme {
+  /* Extender Neutros */
+  --color-neutral-900: hsl(var(--neutral-900));
+  --color-neutral-800: hsl(var(--neutral-800));
+  --color-neutral-700: hsl(var(--neutral-700));
+  --color-neutral-600: hsl(var(--neutral-600));
+  --color-neutral-300: hsl(var(--neutral-300));
+  --color-neutral-200: hsl(var(--neutral-200));
+  --color-neutral-0: hsl(var(--neutral-0));
+
+  /* Extender Naranja */
+  --color-orange-500: hsl(var(--orange-500));
+
+  /* Extender Azules */
+  --color-blue-500: hsl(var(--blue-500));
+  --color-blue-700: hsl(var(--blue-700));
+
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-bricolage: "Bricolage Grotesque", sans-serif;
+}
+
+@utility bg-today-sm {
+  background-image: url('/images/bg-today-small.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@utility bg-today-lg {
+  background-image: url('/images/bg-today-large.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@utility bg-checked {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url('/images/icon-checkmark.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  right: 0;
+  top: 5px;
+
+}

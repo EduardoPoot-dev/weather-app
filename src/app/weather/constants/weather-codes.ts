@@ -1,0 +1,32 @@
+
+
+export const weatherCodes: Record<number, {icon: string}> = {
+  0: {  icon: 'sunny' },
+  1: {  icon: 'sunny' },
+  2: { icon: 'partly-cloudy' },
+  3: { icon: 'overcast' },
+  45: { icon: 'fog' },
+  48: {  icon: 'fog' },
+  51: { icon: 'drizzle' },
+  53: { icon: 'drizzle' },
+  55: {  icon: 'drizzle' },
+  56: { icon: 'snow' },
+  57: { icon: 'snow' },
+  61: { icon: 'drizzle' },
+  63: { icon: 'rain' },
+  65: {  icon: 'rain' },
+  66: { icon: 'snow' },
+  67: { icon: 'rain' },
+  71: { icon: 'snow' },
+  73: {  icon: 'snow' },
+  75: { icon: 'snow' },
+  77: { icon: 'snow' },
+  80: { icon: 'rain' },
+  81: { icon: 'rain' },
+  82: { icon: 'storm' },
+  85: { icon: 'snow' },
+  86: { icon: 'snow' },
+  95: { icon: 'storm' },
+  96: { icon: 'storm' },
+  99: { icon: 'storm' }
+}

@@ -1,0 +1,14 @@
+<section class="md:w-1/2 mx-auto flex flex-col md:flex-row gap-4 py-10">
+  <input
+    #txtSearch
+    (keyup)="query.set(txtSearch.value)"
+    (keyup.enter)="(searchPlace())"
+    class="p-3 rounded-lg text-white bg-neutral-700 w-full"
+    type="text"
+    placeholder="Search for a place"
+  >
+
+  <button (click)="(searchPlace()) " type="button"
+    class="rounded-lg py-3 px-6 bg-blue-500 text-white hover:bg-blue-700 transition-colors"
+  >Search</button>
+</section>

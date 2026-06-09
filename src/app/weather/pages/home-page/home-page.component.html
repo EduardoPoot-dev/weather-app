@@ -1,0 +1,35 @@
+<main class="max-w-7xl mx-auto px-4 2xl:px-0 md:pb-5 max-h-full relative">
+
+  <div class="py-4 flex justify-between">
+    <div>
+      <img class="w-40" src="./images/logo.svg" alt="Weather Now Logo">
+    </div>
+
+    <app-change-units-menu />
+  </div>
+
+  <h1 class=" my-4 text-white  font-bricolage font-black text-5xl text-center leading-tight">
+    How's the sky looking today?
+  </h1>
+
+  <weather-search-place />
+
+  @if (!isError() ) {
+    <div class="md:grid md:grid-cols-3 gap-6">
+      <div class="md:col-span-2">
+        <current-weather />
+
+        <weather-daily-forecast />
+      </div>
+
+      <weather-houry-forecast />
+    </div>
+  } @else {
+    <div>
+      <p class="text-2xl font-bold text-white text-center mt-7">
+        No search result found!
+      </p>
+    </div>
+  }
+
+</main>

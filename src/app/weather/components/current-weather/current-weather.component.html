@@ -1,0 +1,53 @@
+<section class="w-full ">
+  @if(isLoading()) {
+    <div class=" w-full h-56 bg-neutral-800 rounded-lg border border-neutral-600"></div>
+  } @else {
+    <div class=" w-full h-56 bg-today-sm md:bg-today-lg rounded-lg ">
+      <div class="text-white  z-10 px-5 w-full h-full flex justify-between items-center">
+        <div>
+          <p class="font-bold text-xl">{{locationInfo().name}}</p>
+          <p class="text-sm mt-3 text-neutral-200">
+            {{ locationInfo().date | date: 'EEEE MMM d yyyy':'':'en-US' }}
+          </p>
+        </div>
+
+        <div>
+          <p class="text-6xl font-bold">
+            {{ showCurrentWeather() }}
+          </p>
+        </div>
+      </div>
+    </div>
+  }
+
+  <div class="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
+    <weather-feels-like
+      title="Feels Like"
+      [originalValue]="weather().feelsLike"
+      [imperialValue]="weatherToImperial().feelsLike"
+    />
+
+    <weather-humidity
+      title="Humidity"
+      [originalValue]="weather().humidity"
+    />
+
+    <weather-wind
+      title="Wind"
+      [originalValue]="weather().wind"
+      [imperialValue]="weatherToImperial().wind"
+    />
+
+    <weather-precipitation
+      title="Precipitation"
+      [originalValue]="weather().precipitation"
+      [imperialValue]="weatherToImperial().precipitation"
+    />
+
+
+
+
+  </div>
+</section>
+
+

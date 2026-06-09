@@ -1,0 +1,31 @@
+<section class="max-h-140 overflow-y-scroll  mt-8 md:mt-0 rounded-lg bg-neutral-800 p-5 mb-5 md:mb-0">
+  <div class="flex justify-between">
+    <p class="text-white font-bold text-lg ">Houry forecast</p>
+
+    <weather-change-day-select (dayNumber)="changeDayNumber($event)" />
+  </div>
+
+  <ul class="mt-5 space-y-3">
+    @if(isLoading()) {
+      @for (item of tenHours; track item) {
+        <li class="flex items-center h-15 justify-between rounded-lg border border-neutral-600 bg-neutral-700 p-3 text-white"></li>
+      }
+    } @else {
+      @for (item of weather24Hours(); track $index; let i = $index) {
+        <li class="flex items-center justify-between rounded-lg border border-neutral-600 bg-neutral-700 p-3 text-white">
+          <div class="flex items-center">
+            <img
+              class="w-10"
+              [src]="`./images/icon-${weatherCodes[weatherCode24Hours()?.[i] ?? 0].icon}.webp`"
+              alt="Weather icon"
+            >
+            <p class="text-lg">{{time24Hours()?.[i] | date: 'h a'}}</p>
+          </div>
+
+          <weather-show-by-hour [weather]="weather24Hours()?.[i] ?? 0" />
+        </li>
+      }
+    }
+
+  </ul>
+</section>
